@@ -17,9 +17,14 @@ export default async function LoginPage({
     <div className="min-h-screen flex items-center justify-center bg-slate-50 p-4">
       <div className="w-full max-w-md bg-white rounded-3xl shadow-xl shadow-slate-200/50 p-8 border border-slate-100">
         <div className="flex flex-col items-center mb-8">
-          <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-blue-600/20 mb-4">
-            iz
-          </div>
+          <Link href="/" className="flex items-center gap-2.5 mb-6 group">
+            <div className="w-12 h-12 rounded-[14px] bg-blue-600 flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform duration-200">
+              <span className="text-white font-black text-[26px] tracking-tight leading-none mt-0.5">iz</span>
+            </div>
+            <span className="text-3xl font-bold tracking-tight text-slate-900">
+              izifacture
+            </span>
+          </Link>
           <h1 className="text-2xl font-bold text-slate-900">
             {isSignup ? "Créer un compte" : "Bienvenue sur IziFacture"}
           </h1>

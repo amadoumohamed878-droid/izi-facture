@@ -287,26 +287,26 @@ export default function DashboardClient({ initialInvoices, initialClients }: { i
                         <MoreHorizontal className="h-4 w-4" />
                       </DropdownMenuTrigger>
                       <DropdownMenuContent align="end" className="rounded-xl shadow-sm border-slate-100 min-w-44">
-                        <DropdownMenuItem onClick={(e) => { e.stopPropagation(); router.push(`/factures/${invoice.id}`); }}>Voir les détails</DropdownMenuItem>
-                        <DropdownMenuItem onClick={(e) => { e.stopPropagation(); router.push(`/factures/${invoice.id}/modifier`); }}>Modifier</DropdownMenuItem>
+                        <DropdownMenuItem onSelect={() => router.push(`/factures/${invoice.id}`)}>Voir les détails</DropdownMenuItem>
+                        <DropdownMenuItem onSelect={() => router.push(`/factures/${invoice.id}/modifier`)}>Modifier</DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem onClick={(e) => { e.stopPropagation(); handleStatusChange(invoice.id, 'paid'); }} className="text-emerald-600 font-medium cursor-pointer">
+                        <DropdownMenuItem onSelect={() => handleStatusChange(invoice.id, 'paid')} className="text-emerald-600 font-medium cursor-pointer">
                           🟢 Marquer Payée
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={(e) => { e.stopPropagation(); handleStatusChange(invoice.id, 'sent'); }} className="text-orange-600 font-medium cursor-pointer">
+                        <DropdownMenuItem onSelect={() => handleStatusChange(invoice.id, 'sent')} className="text-orange-600 font-medium cursor-pointer">
                           🟧 Marquer Envoyée
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={(e) => { e.stopPropagation(); handleStatusChange(invoice.id, 'overdue'); }} className="text-red-600 font-medium cursor-pointer">
+                        <DropdownMenuItem onSelect={() => handleStatusChange(invoice.id, 'overdue')} className="text-red-600 font-medium cursor-pointer">
                           🟥 Marquer En retard
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={(e) => { e.stopPropagation(); handleStatusChange(invoice.id, 'draft'); }} className="cursor-pointer">
+                        <DropdownMenuItem onSelect={() => handleStatusChange(invoice.id, 'draft')} className="cursor-pointer">
                           ⚪ Marquer Brouillon
                         </DropdownMenuItem>
-                        <DropdownMenuItem onClick={(e) => { e.stopPropagation(); handleStatusChange(invoice.id, 'cancelled'); }} className="cursor-pointer">
+                        <DropdownMenuItem onSelect={() => handleStatusChange(invoice.id, 'cancelled')} className="cursor-pointer">
                           ⬛ Marquer Annulée
                         </DropdownMenuItem>
                         <DropdownMenuSeparator />
-                        <DropdownMenuItem className="text-red-600 cursor-pointer" onClick={(e) => { e.stopPropagation(); handleDeleteInvoice(invoice.id); }}>
+                        <DropdownMenuItem className="text-red-600 cursor-pointer" onSelect={() => handleDeleteInvoice(invoice.id)}>
                           Supprimer
                         </DropdownMenuItem>
                       </DropdownMenuContent>

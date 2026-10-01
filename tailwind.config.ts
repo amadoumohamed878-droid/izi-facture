@@ -55,6 +55,26 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        brand: {
+          50: '#fff5f0',
+          100: '#ffe8dc',
+          200: '#ffd0b8',
+          500: '#ff5722',
+          600: '#ff4800',
+          700: '#e03d00',
+          900: '#7a2200'
+        },
+        surface: {
+          cream: '#fbf9f6',
+          card: '#ffffff',
+          dark: '#0f172a'
+        }
+      },
+      boxShadow: {
+        'soft': '0 4px 25px -4px rgba(15, 23, 42, 0.05), 0 2px 10px -2px rgba(15, 23, 42, 0.03)',
+        'elevated': '0 20px 40px -15px rgba(255, 72, 0, 0.15)',
+        'glow': '0 10px 30px -5px rgba(255, 72, 0, 0.35)',
+        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.08)'
       },
       borderRadius: {
         lg: "var(--radius)",

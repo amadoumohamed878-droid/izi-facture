@@ -1,12 +1,12 @@
+const fs = require('fs');
 
+const pageContent = `
 "use client";
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
 
 export default function Home() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
     // Year updater
     const yearEl = document.getElementById('current-year');
@@ -43,11 +43,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <Link className="flex items-center gap-2.5 group" href="/">
-              <div className="w-10 h-10 rounded-[14px] bg-blue-600 flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform duration-200">
-                <span className="text-white font-black text-[22px] tracking-tight leading-none mt-0.5">iz</span>
+              <div className="w-10 h-10 rounded-xl bg-blue-500 flex items-center justify-center shadow-md shadow-blue-500/20 group-hover:scale-105 transition-transform duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" stroke="#171717" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
               </div>
-              <span className="text-2xl font-bold tracking-tight text-neutral-900">
-                izifacture
+              <span className="text-2xl font-black tracking-tight text-neutral-900">
+                izi<span className="text-blue-600">Facture</span>
               </span>
             </Link>
 
@@ -60,43 +60,11 @@ export default function Home() {
             </nav>
 
             <div className="flex items-center gap-4">
-              <Link className="hidden md:inline-flex text-sm font-semibold text-neutral-800 hover:text-blue-600 transition-colors px-3 py-2" href="/login">Connexion</Link>
-              <a className="hidden md:inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/25 hover:shadow-lg active:scale-95 transition-all duration-150" href="#tarifs">Essai gratuit</a>
-              
-              <button 
-                className="md:hidden p-2 -mr-2 text-neutral-600 hover:text-blue-600 transition-colors"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                aria-label="Menu principal"
-              >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
+              <Link className="hidden sm:inline-flex text-sm font-semibold text-neutral-800 hover:text-blue-600 transition-colors px-3 py-2" href="/login">Connexion</Link>
+              <a className="inline-flex items-center justify-center px-5 py-2.5 rounded-full text-sm font-semibold text-white bg-blue-600 hover:bg-blue-700 shadow-md shadow-blue-500/25 hover:shadow-lg active:scale-95 transition-all duration-150" href="#tarifs">Essai gratuit</a>
             </div>
           </div>
         </div>
-
-        {/* Menu Mobile */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white border-b border-neutral-200/50 shadow-xl shadow-slate-900/5 animate-in slide-in-from-top-2">
-            <nav className="flex flex-col px-4 pt-2 pb-6 space-y-4">
-              <a className="text-[15px] font-semibold text-neutral-700 hover:text-blue-600 transition-colors" href="#fonctionnalites" onClick={() => setIsMobileMenuOpen(false)}>Fonctionnalités</a>
-              <a className="text-[15px] font-semibold text-neutral-700 hover:text-blue-600 transition-colors" href="#pourquoi-nous" onClick={() => setIsMobileMenuOpen(false)}>Pourquoi nous</a>
-              <a className="text-[15px] font-semibold text-neutral-700 hover:text-blue-600 transition-colors" href="#comment-ca-marche" onClick={() => setIsMobileMenuOpen(false)}>Comment ça marche</a>
-              <a className="text-[15px] font-semibold text-neutral-700 hover:text-blue-600 transition-colors" href="#temoignages" onClick={() => setIsMobileMenuOpen(false)}>Témoignages</a>
-              <a className="text-[15px] font-semibold text-neutral-700 hover:text-blue-600 transition-colors" href="#tarifs" onClick={() => setIsMobileMenuOpen(false)}>Tarifs</a>
-              
-              <div className="h-px bg-neutral-100 my-2"></div>
-              
-              <div className="flex flex-col gap-3 pt-2">
-                <Link className="flex items-center justify-center w-full px-5 py-3 rounded-xl text-[15px] font-semibold text-neutral-800 bg-neutral-100 hover:bg-neutral-200 transition-colors" href="/login" onClick={() => setIsMobileMenuOpen(false)}>
-                  Connexion
-                </Link>
-                <a className="flex items-center justify-center w-full px-5 py-3 rounded-xl text-[15px] font-semibold text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-md shadow-blue-500/20" href="#tarifs" onClick={() => setIsMobileMenuOpen(false)}>
-                  Essai gratuit
-                </a>
-              </div>
-            </nav>
-          </div>
-        )}
       </header>
 
       <section className="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
@@ -492,10 +460,10 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-neutral-800">
             <div className="lg:col-span-2">
               <Link className="flex items-center gap-2.5" href="/">
-                <div className="w-9 h-9 rounded-[12px] bg-blue-600 flex items-center justify-center shadow-md">
-                  <span className="text-white font-black text-[20px] tracking-tight leading-none mt-0.5">iz</span>
+                <div className="w-9 h-9 rounded-xl bg-blue-500 flex items-center justify-center shadow-md">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#fbbf24" stroke="#171717" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
                 </div>
-                <span className="text-2xl font-bold tracking-tight text-white">izifacture</span>
+                <span className="text-2xl font-black tracking-tight text-white">izi<span className="text-blue-500">Facture</span></span>
               </Link>
               <p className="mt-4 text-sm text-neutral-400 max-w-sm leading-relaxed">
                 La solution de facturation cloud moderne conçue sur mesure pour répondre aux défis des PME, indépendants et créateurs en Afrique de l'Ouest et Centrale.
@@ -558,3 +526,6 @@ export default function Home() {
     </div>
   );
 }
+`;
+
+fs.writeFileSync('src/app/page.tsx', pageContent);
