@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
@@ -27,9 +29,10 @@ const mainNavItems = [
 
 export function MobileNav() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger 
         render={<Button variant="ghost" size="icon" className="lg:hidden" />}
       >
@@ -56,6 +59,7 @@ export function MobileNav() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  onClick={() => setOpen(false)}
                   className={cn(
                     "flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-colors",
                     isActive 
@@ -73,6 +77,7 @@ export function MobileNav() {
           <div className="mt-auto space-y-1">
             <Link
               href="/aide"
+              onClick={() => setOpen(false)}
               className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors"
             >
               <HelpCircle className="w-5 h-5 text-slate-400" />
@@ -80,6 +85,7 @@ export function MobileNav() {
             </Link>
             <Link
               href="/parametres"
+              onClick={() => setOpen(false)}
               className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-slate-500 hover:text-slate-900 hover:bg-slate-50 transition-colors"
             >
               <Settings className="w-5 h-5 text-slate-400" />
